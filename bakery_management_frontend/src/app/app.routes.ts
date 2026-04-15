@@ -7,6 +7,7 @@ import { DeliveryList } from './components/delivery-list/delivery-list';
 import { Reports } from './components/reports/reports';
 import { Settings } from './components/settings/settings';
 import { Notifications } from './components/notifications/notifications';
+import { Demo } from './components/demo/demo';
 
 export const routes: Routes = [
      { path: '', component: Login },
@@ -17,4 +18,5 @@ export const routes: Routes = [
      { path: 'reports', component: Reports },
      { path: 'settings', component: Settings },
      { path: 'notifications', component: Notifications },
+     { path: 'demo', component: Demo },
 ];
