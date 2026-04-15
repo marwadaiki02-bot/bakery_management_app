@@ -1,0 +1,33 @@
+<div class="p-6 max-w-4xl mx-auto">
+    <h2 class="text-3xl font-bold mb-6 text-center text-pink-600">🚚 Deliveries Management / Gestion des Livraisons</h2>
+
+    <!-- Liste des livraisons -->
+    <div class="bg-white shadow rounded-lg p-4 mb-6">
+        <h3 class="text-xl font-semibold mb-4">Deliveries / Livraisons</h3>
+        <ul>
+            <li *ngFor="let d of deliveries" class="border-b py-2 flex justify-between items-center">
+                <span>Order ID: {{ d.orderId }} | Address: {{ d.address }} | Status: {{ d.status }}</span>
+                <div class="space-x-2">
+                    <button (click)="updateStatus(d.id!, 'in-progress')"
+                        class="bg-yellow-500 text-white px-2 py-1 rounded">⏳ In Progress / En cours</button>
+                    <button (click)="updateStatus(d.id!, 'delivered')"
+                        class="bg-green-500 text-white px-2 py-1 rounded">✅ Delivered / Livré</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Formulaire d’ajout -->
+    <div class="bg-gray-50 shadow rounded-lg p-4">
+        <h3 class="text-xl font-semibold mb-4">Add a Delivery / Ajouter une livraison</h3>
+        <form (ngSubmit)="addDelivery()" class="space-y-3">
+            <input [(ngModel)]="newDelivery.address" name="address" placeholder="Address / Adresse"
+                class="border p-2 w-full rounded focus:ring-2 focus:ring-pink-400" />
+            <input [(ngModel)]="newDelivery.orderId" name="orderId" type="number" placeholder="Order ID"
+                class="border p-2 w-full rounded focus:ring-2 focus:ring-pink-400" />
+            <button type="submit" class="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded w-full">
+                ➕ Add / Ajouter
+            </button>
+        </form>
+    </div>
+</div>

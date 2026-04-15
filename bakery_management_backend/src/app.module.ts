@@ -8,6 +8,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/user.entity';
 import { Cake } from './cakes/cake.entity';
 import { OrdersModule } from './orders/orders.module';
+import { DeliveriesModule } from './deliveries/deliveries.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -16,7 +17,7 @@ import { OrdersModule } from './orders/orders.module';
       entities: [User, Cake],
       synchronize: true, // ⚠️ pratique en dev, à éviter en prod
     }),
-    AuthModule, UsersModule, CakesModule, OrdersModule],
+    AuthModule, UsersModule, CakesModule, OrdersModule, DeliveriesModule],
   controllers: [AppController],
   providers: [AppService],
 })
