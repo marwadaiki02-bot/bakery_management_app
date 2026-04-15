@@ -1,0 +1,29 @@
+<div class="p-6 max-w-5xl mx-auto">
+  <h2 class="text-3xl font-bold mb-6 text-center text-pink-600">📈 Reports & Analytics / Rapports & Statistiques</h2>
+
+  <div class="grid grid-cols-3 gap-6">
+    <!-- Sales -->
+    <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+      <h3 class="text-xl font-semibold text-pink-600">🍰 Sales / Ventes</h3>
+      <ul>
+        <li *ngFor="let s of sales">{{ s.cake }} : {{ s.total }}</li>
+      </ul>
+    </div>
+
+    <!-- Orders -->
+    <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+      <h3 class="text-xl font-semibold text-pink-600">🧾 Orders / Commandes</h3>
+      <ul>
+        <li *ngFor="let o of orders">{{ o.month }} : {{ o.orders }}</li>
+      </ul>
+    </div>
+
+    <!-- Deliveries -->
+    <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+      <h3 class="text-xl font-semibold text-pink-600">🚚 Deliveries / Livraisons</h3>
+      <ul>
+        <li *ngFor="let d of deliveries">{{ d.status }} : {{ d.count }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

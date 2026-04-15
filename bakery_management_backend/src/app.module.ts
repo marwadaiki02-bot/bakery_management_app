@@ -9,15 +9,18 @@ import { User } from './users/user.entity';
 import { Cake } from './cakes/cake.entity';
 import { OrdersModule } from './orders/orders.module';
 import { DeliveriesModule } from './deliveries/deliveries.module';
+import { Delivery } from './deliveries/delivery.entity';
+import { Order } from './orders/order.entity';
+import { ReportsModule } from './reports/reports.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
       type: 'sqlite',
       database: 'bakery.sqlite',
-      entities: [User, Cake],
+      entities: [User, Cake, Order, Delivery],
       synchronize: true, // ⚠️ pratique en dev, à éviter en prod
     }),
-    AuthModule, UsersModule, CakesModule, OrdersModule, DeliveriesModule],
+    AuthModule, UsersModule, CakesModule, OrdersModule, DeliveriesModule, ReportsModule],
   controllers: [AppController],
   providers: [AppService],
 })
