@@ -7,6 +7,7 @@ import { CakesModule } from './cakes/cakes.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/user.entity';
 import { Cake } from './cakes/cake.entity';
+import { OrdersModule } from './orders/orders.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -15,7 +16,7 @@ import { Cake } from './cakes/cake.entity';
       entities: [User, Cake],
       synchronize: true, // ⚠️ pratique en dev, à éviter en prod
     }),
-    AuthModule, UsersModule, CakesModule],
+    AuthModule, UsersModule, CakesModule, OrdersModule],
   controllers: [AppController],
   providers: [AppService],
 })

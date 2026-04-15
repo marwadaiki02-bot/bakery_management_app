@@ -1,0 +1,29 @@
+<div class="p-6 max-w-4xl mx-auto">
+    <h2 class="text-3xl font-bold mb-6 text-center text-pink-600">🧾 Orders Management / Gestion des Commandes</h2>
+
+    <!-- Liste des commandes -->
+    <div class="bg-white shadow rounded-lg p-4 mb-6">
+        <h3 class="text-xl font-semibold mb-4">Orders / Commandes</h3>
+        <ul>
+            <li *ngFor="let o of orders" class="border-b py-2">
+                Client: {{ o.client }} | Quantity: {{ o.quantity }} | Cake ID: {{ o.cakeId }}
+            </li>
+        </ul>
+    </div>
+
+    <!-- Formulaire d’ajout -->
+    <div class="bg-gray-50 shadow rounded-lg p-4">
+        <h3 class="text-xl font-semibold mb-4">Add an Order / Ajouter une commande</h3>
+        <form (ngSubmit)="addOrder()" class="space-y-3">
+            <input [(ngModel)]="newOrder.client" name="client" placeholder="Client"
+                class="border p-2 w-full rounded focus:ring-2 focus:ring-pink-400" />
+            <input [(ngModel)]="newOrder.quantity" name="quantity" type="number" placeholder="Quantity / Quantité"
+                class="border p-2 w-full rounded focus:ring-2 focus:ring-pink-400" />
+            <input [(ngModel)]="newOrder.cakeId" name="cakeId" type="number" placeholder="Cake ID"
+                class="border p-2 w-full rounded focus:ring-2 focus:ring-pink-400" />
+            <button type="submit" class="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded w-full">
+                ➕ Add / Ajouter
+            </button>
+        </form>
+    </div>
+</div>
