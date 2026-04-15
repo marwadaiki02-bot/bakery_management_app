@@ -1,0 +1,15 @@
+<div class="flex items-center justify-center h-screen bg-gray-100">
+  <div class="bg-white shadow-lg rounded-lg p-6 w-96">
+    <h2 class="text-2xl font-bold mb-4 text-center">🔑 Login / Connexion</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-4">
+      <input formControlName="username" placeholder="Username / Nom d'utilisateur"
+             class="border p-2 w-full rounded" />
+      <input formControlName="password" type="password" placeholder="Password / Mot de passe"
+             class="border p-2 w-full rounded" />
+      <button type="submit" class="bg-pink-500 text-white px-4 py-2 rounded w-full"
+              [disabled]="loginForm.invalid">
+        Login / Connexion
+      </button>
+    </form>
+  </div>
+</div>
