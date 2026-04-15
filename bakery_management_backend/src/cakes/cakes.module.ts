@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { CakesService } from './cakes.service';
 import { CakesController } from './cakes.controller';
 import { Cake } from './cake.entity';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Cake])],

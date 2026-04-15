@@ -4,9 +4,18 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { CakesModule } from './cakes/cakes.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './users/user.entity';
+import { Cake } from './cakes/cake.entity';
 
 @Module({
-  imports: [AuthModule, UsersModule, CakesModule],
+  imports: [TypeOrmModule.forRoot({
+      type: 'sqlite',
+      database: 'bakery.sqlite',
+      entities: [User, Cake],
+      synchronize: true, // ⚠️ pratique en dev, à éviter en prod
+    }),
+    AuthModule, UsersModule, CakesModule],
   controllers: [AppController],
   providers: [AppService],
 })
