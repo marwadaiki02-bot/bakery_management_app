@@ -8,15 +8,22 @@ import { Reports } from './components/reports/reports';
 import { Settings } from './components/settings/settings';
 import { Notifications } from './components/notifications/notifications';
 import { Demo } from './components/demo/demo';
+import { AuthGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
-     { path: '', component: Login },
-     { path: 'dashboard', component: Dashboard },
-     { path: 'cakes', component: CakeList },
-     { path: 'orders', component: OrderList },
-     { path: 'deliveries', component: DeliveryList },
-     { path: 'reports', component: Reports },
-     { path: 'settings', component: Settings },
-     { path: 'notifications', component: Notifications },
-     { path: 'demo', component: Demo },
+    { path: '', component: Login },
+  {
+    path: 'dashboard',
+    component: Dashboard,
+    canActivate: [AuthGuard],
+    children: [
+      { path: 'cakes', component: CakeList },
+      { path: 'orders', component: OrderList },
+      { path: 'deliveries', component: DeliveryList },
+      { path: 'reports', component: Reports },
+      { path: 'settings', component: Settings },
+      { path: 'notifications', component: Notifications },
+      { path: 'demo', component: Demo },
+    ]
+  }
 ];

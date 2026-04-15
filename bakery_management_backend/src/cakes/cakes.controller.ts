@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Patch, Delete, Param, Body } from '@nestjs/common';
+import { Controller, Get, Post, Patch, Delete, Param, Body, UseGuards } from '@nestjs/common';
 import { CakesService } from './cakes.service';
 import { Cake } from './cake.entity';
 
@@ -6,6 +6,7 @@ import { Cake } from './cake.entity';
 export class CakesController {
   constructor(private readonly cakesService: CakesService) {}
 
+  @UseGuards(JwtAuthGuard)
   @Get()
   findAll(): Promise<Cake[]> {
     return this.cakesService.findAll();
