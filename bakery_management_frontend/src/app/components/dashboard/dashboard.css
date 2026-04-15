@@ -1,0 +1,5 @@
+/* Simple styling for sidebar */
+aside ul li a {
+  display: block;
+  width: 100%;
+}

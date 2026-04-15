@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,20 +15,21 @@ import { AuthService } from '../../services/auth';
 export class Login {
  loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService,private router: Router) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
-  onSubmit() {
-    if (this.loginForm.valid) {
-      const { username, password } = this.loginForm.value;
-      this.authService.login(username, password).subscribe((res: any) => {
-        localStorage.setItem('token', res.access_token);
-        alert('✅ Login successful / Connexion réussie');
-      });
-    }
+onSubmit() {
+  if (this.loginForm.valid) {
+    const { username, password } = this.loginForm.value;
+    this.authService.login(username, password).subscribe((res: any) => {
+      localStorage.setItem('token', res.access_token);
+      alert('✅ Login successful / Connexion réussie');
+      this.router.navigate(['/dashboard']); // redirection vers dashboard
+    });
   }
+}
 }
