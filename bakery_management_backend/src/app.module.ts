@@ -12,6 +12,7 @@ import { DeliveriesModule } from './deliveries/deliveries.module';
 import { Delivery } from './deliveries/delivery.entity';
 import { Order } from './orders/order.entity';
 import { ReportsModule } from './reports/reports.module';
+import { NotificationsModule } from './notifications/notifications.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -20,7 +21,7 @@ import { ReportsModule } from './reports/reports.module';
       entities: [User, Cake, Order, Delivery],
       synchronize: true, // ⚠️ pratique en dev, à éviter en prod
     }),
-    AuthModule, UsersModule, CakesModule, OrdersModule, DeliveriesModule, ReportsModule],
+    AuthModule, UsersModule, CakesModule, OrdersModule, DeliveriesModule, ReportsModule, NotificationsModule],
   controllers: [AppController],
   providers: [AppService],
 })
