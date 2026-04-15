@@ -5,6 +5,7 @@ import { CakeList } from './components/cake-list/cake-list';
 import { OrderList } from './components/order-list/order-list';
 import { DeliveryList } from './components/delivery-list/delivery-list';
 import { Reports } from './components/reports/reports';
+import { Settings } from './components/settings/settings';
 
 export const routes: Routes = [
      { path: '', component: Login },
@@ -13,4 +14,5 @@ export const routes: Routes = [
      { path: 'orders', component: OrderList },
      { path: 'deliveries', component: DeliveryList },
      { path: 'reports', component: Reports },
+     { path: 'settings', component: Settings },
 ];
