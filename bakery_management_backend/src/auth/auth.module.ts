@@ -2,11 +2,13 @@ import { Module } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
   imports: [
+    PassportModule,
     JwtModule.register({
-      secret: 'secretKey', // ⚠️ à mettre dans .env en production
+      secret: 'secretKey', // ⚠️ à mettre dans .env
       signOptions: { expiresIn: '1h' },
     }),
   ],
